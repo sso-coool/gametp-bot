@@ -30,7 +30,7 @@ intents.guilds = True  # Required for role checking
 bot = MyBot(intents=intents)
 
 # Role ID that is allowed to use the bot
-ALLOWED_ROLE_ID = 123456789012345678  # Replace this with the actual role ID
+ALLOWED_ROLE_ID = 1278446317328142478  # Replace this with the actual role ID
 
 # Define a function to check if a place ID is valid using the Roblox website
 async def is_valid_place_id(place_id: int) -> bool:
