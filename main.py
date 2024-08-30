@@ -29,6 +29,9 @@ intents.message_content = True
 intents.guilds = True  # Required for role checking
 bot = MyBot(intents=intents)
 
+# Role ID that is allowed to use the bot
+ALLOWED_ROLE_ID = 123456789012345678  # Replace this with the actual role ID
+
 # Define a function to check if a place ID is valid using the Roblox website
 async def is_valid_place_id(place_id: int) -> bool:
     url = f"https://www.roblox.com/games/{place_id}"
@@ -51,18 +54,12 @@ async def is_valid_place_id(place_id: int) -> bool:
 async def raid(interaction: discord.Interaction, game_id: int) -> None:
     """Sets the game ID and queues users if a command is already being processed."""
 
-    # Role IDs that bypass cooldown
-    bypass_roles = [1278444615053082797, 1278442314699898982, 1278437864777977900]  # Add the second role ID here
     user_id = interaction.user.id
-    now = datetime.now()
-
-    # Check if the user has the required role
     guild = interaction.guild  # Get the guild (server) from the interaction
     if guild is None:
         await interaction.response.send_message("This command can only be used in a server.", ephemeral=True)
         return
 
-    # Attempt to get the member object
     member = guild.get_member(user_id)  # Get the member object for the user
 
     if member is None:  # If member is not found, try to fetch it
@@ -71,6 +68,15 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
         except discord.NotFound:
             await interaction.response.send_message("Could not find the member in the server.", ephemeral=True)
             return
+
+    # Check if the user has the allowed role
+    if not any(role.id == ALLOWED_ROLE_ID for role in member.roles):
+        await interaction.response.send_message("You do not have permission to use this bot.", ephemeral=True)
+        return
+
+    # Role IDs that bypass cooldown
+    bypass_roles = [1278444615053082797, 1278442314699898982, 1278437864777977900]  # Add the second role ID here
+    now = datetime.now()
 
     # Check if the user has one of the bypass roles
     if any(role.id in bypass_roles for role in member.roles):
@@ -204,10 +210,10 @@ async def run_flask_async():
 # Start the Flask server asynchronously in a separate thread
 Thread(target=lambda: asyncio.run(run_flask_async())).start()
 
-# When the bot is ready, print a message
 @bot.event
 async def on_ready():
+    """Event handler for when the bot is ready."""
     print(f"Logged in as {bot.user}")
 
-# Start the bot 
+# Run the bot with your token
 bot.run('MTI3ODQ0MTI5Mjg0MTYxOTYwOA.GBWy3A.jPL1YWgX1em6u-qyKygo1lyM9rTMcZcjeEjvN0')
