@@ -94,7 +94,7 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
                     color=099255156
                 )
                 embed.set_author(name="serverside.emerald 2024.")
-                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
+                embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
 
                 await interaction.response.send_message(embed=embed, ephemeral=True)
                 return
@@ -108,7 +108,7 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
             color=099255156
         )
         embed.set_author(name="serverside.emerald 2024.")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
         return
@@ -124,7 +124,7 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
         color=15844367
     )
     embed.set_author(name="serverside.emerald 2024.")
-    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
 
     # Use the interaction's followup to ensure the message object is correctly retrieved
     await interaction.response.send_message(embed=embed)
@@ -167,7 +167,7 @@ async def process_next_raid(message):
             color=11559133
         )
         embed.set_author(name="serverside.emerald 2024.")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
 
         await message.edit(embed=embed)
 
