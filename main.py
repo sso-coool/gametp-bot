@@ -30,7 +30,7 @@ intents.guilds = True  # Required for role checking
 bot = MyBot(intents=intents)
 
 # Role ID that is allowed to use the bot
-ALLOWED_ROLE_ID = 1278446317328142478  # Replace this with the actual role ID
+ALLOWED_ROLE_ID = 1280340589971247245  # Replace this with the actual role ID
 
 # Define a function to check if a place ID is valid using the Roblox website
 async def is_valid_place_id(place_id: int) -> bool:
@@ -89,11 +89,11 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
             if now < cooldown_expiry:
                 # User is still on cooldown
                 embed = discord.Embed(
-                    title="Frigid | #1 Raiding Tool",
+                    title="serverside.emerald | #1 Raiding Tool",
                     description="**You're on a cooldown for 10 minutes!** 🚫",
-                    color=14508128
+                    color=099255156
                 )
-                embed.set_author(name="Frigid 2024.")
+                embed.set_author(name="serverside.emerald 2024.")
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
 
                 await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -103,11 +103,11 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
     if not await is_valid_place_id(game_id):
         # If the place ID is invalid, send an embed message
         embed = discord.Embed(
-            title="Frigid | #1 Raiding Tool",
+            title="serverside.emerald | #1 Raiding Tool",
             description="**The provided Place ID is invalid. Please try again with a valid ID.** 🚫",
-            color=14508128
+            color=099255156
         )
-        embed.set_author(name="Frigid 2024.")
+        embed.set_author(name="serverside.emerald 2024.")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -119,11 +119,11 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
     # Send an initial embed message indicating the user's position in the queue
     position = len(bot.queue)
     embed = discord.Embed(
-        title="Frigid | #1 Raiding Tool",
+        title="serverside.emerald | #1 Raiding Tool",
         description=f"**You've been added to the queue in position #{position}.** Please wait until the current raid is complete. ⏳",
         color=15844367
     )
-    embed.set_author(name="Frigid 2024.")
+    embed.set_author(name="serverside.emerald 2024.")
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
 
     # Use the interaction's followup to ensure the message object is correctly retrieved
@@ -162,11 +162,11 @@ async def process_next_raid(message):
 
         # Edit the message to indicate the raid has started
         embed = discord.Embed(
-            title="Frigid | #1 Raiding Tool",
-            description=f"**Game ID ({game_id}) is being raided!**\n**Thank you for purchasing Frigid. 💸**",
+            title="serverside.emerald | #1 Raiding Tool",
+            description=f"**Game ID ({game_id}) is being raided!**\n**Thank you for purchasing serverside.emerald. 💸**",
             color=11559133
         )
-        embed.set_author(name="Frigid 2024.")
+        embed.set_author(name="serverside.emerald 2024.")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1278436853900640342/1278447609685606483/Screenshot_2024-08-28_at_21.14.16.png")
 
         await message.edit(embed=embed)
@@ -181,7 +181,7 @@ async def process_next_raid(message):
             file.write("stop")
 
         # Edit the message to indicate that raiding has stopped
-        embed.description = "**Raiding Stopped! 🛑**\n**Thank you for purchasing Frigid. 💸**"
+        embed.description = "**Raiding Stopped! 🛑**\n**Thank you for purchasing serverside.emerald. 💸**"
         await message.edit(embed=embed)
         print("Game ID changed to 'stop'.")
     except Exception as e:
