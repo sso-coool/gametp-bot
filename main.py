@@ -91,7 +91,7 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
                 embed = discord.Embed(
                     title="serverside.emerald | #1 Raiding Tool",
                     description="**You're on a cooldown for 10 minutes!** 🚫",
-                    color=099255156
+                    color=144238144
                 )
                 embed.set_author(name="serverside.emerald 2024.")
                 embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
@@ -105,7 +105,7 @@ async def raid(interaction: discord.Interaction, game_id: int) -> None:
         embed = discord.Embed(
             title="serverside.emerald | #1 Raiding Tool",
             description="**The provided Place ID is invalid. Please try again with a valid ID.** 🚫",
-            color=099255156
+            color=144238144
         )
         embed.set_author(name="serverside.emerald 2024.")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1278437475060154430/27c6ac62ff812f5faaa81ce013a77128.png?size=4096")
